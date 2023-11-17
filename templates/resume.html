@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiqa's Resume</title>
+    <style>
+        *, *:before, *:after {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            color: #333332;
+            font-family: Lora, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.4;
+            text-rendering: optimizeLegibility;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .skill-set li:hover {
+            background: #44cf8a;
+        }
+
+        h1 {
+            color: rgba(0, 0, 0, .75);
+        }
+
+        .wrapper {
+            height: 100%;
+        }
+
+        .left {
+            background-color: rgba(0, 0, 0, .025);
+            border-right: 1px solid rgba(0, 0, 0, .05);
+            float: right;
+            height: 100%;
+            margin-left: -1px;
+            min-width: 256px;
+            position: fixed;
+            width: 33.33%;
+        }
+
+        .right {
+            float: right;
+            height: 100%;
+            position: relative;
+            width: 66.66%;
+            background-color: #f4f4f4;
+        }
+
+        .name-hero {
+            background: rgba(0, 0, 0, .001);
+            bottom: 0;
+            height: 290px;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 85%;
+        }
+
+        .me-img {
+            background: url("{{ url_for('static', filename='images/shi.jpg') }}") no-repeat left;
+            background-size: 100%;
+            background-position: 0px;
+            border-radius: 100%;
+            height: 150px;
+            margin: 0 auto;
+            position: relative;
+            width: 150px;
+        }
+
+        .name-hero h1 {
+            font-family: Open Sans, sans-serif;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .name-hero h1 em {
+            color: rgba(0, 0, 0, .3);
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .name-hero p {
+            color: rgba(0, 0, 0, .75);
+            font-size: .75em;
+            line-height: 1.5;
+            margin: 0 8px 0 0;
+            text-align: center;
+        }
+
+        .name-hero .name-text {
+            margin: 0 auto;
+            width: 85%;
+        }
+
+        .inner {
+            margin: 0 auto;
+            max-width: 975px;
+            padding: 3em;
+        }
+
+        .inner h1 {
+            font-size: 1.75em;
+        }
+
+        .inner p {
+            color: rgba(0, 0, 0, .5);
+        }
+
+        .inner p em {
+            color: rgba(0, 0, 0, 1);
+            font-style: normal;
+        }
+
+        .inner section {
+            margin: 50px auto;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-top: -10px;
+            max-width: 570px;
+            padding: 0;
+        }
+
+        .skill-set li {
+            background: rgba(0, 0, 0, .75);
+            border-radius: 5px;
+            color: #FFF;
+            display: inline-block;
+            list-style: none;
+            margin: 15px 15px 0 0;
+            padding: 10px;
+            text-align: justify;
+        }
+
+        @media screen and (max-width: 48em) {
+            .right,
+            .left {
+                float: none;
+                position: relative !important;
+                width: 100%;
+                min-height: 500px;
+            }
+
+            .handmade {
+                text-align: center !important;
+                margin-top: 0px !important;
+            }
+        }
+
+        @media screen and (max-width: 75em) {
+            body {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 60em) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        .clearfix:after {
+            content: " ";
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+        .handmade {
+            text-align: right;
+            margin-top: 100px;
+        }
+
+        .handmade em {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 1.25em;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper clearfix">
+        <div class="left">
+            <div class="name-hero">
+                <div class="me-img"></div>
+                <div class="name-text">
+                    <h1>Rashiqa <em>Nariswari</em></h1>
+                    <p>rdewinar@gmail.com</p>
+                    <p>0817251203</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="inner">
+                <section>
+                    <h1>Education</h1>
+                    <p>2022 - Present <em>Airlangga University| Data Science</em></p>
+                    <p>2021-2022 | <em> Sebelas Maret University| Enviromental Science</em></p>
+                    <p>2018-2021| <em>SMA Negeri 4 Solo | IPA</em></p>
+                    <p>Eligible for SNMPTN registration quota for students, Actively involved in the school band and choir
+                        extracurricular activities, participating in various school competitions.</p>
+                    <p>2016-2018| <em>SMP Negeri 1 Solo</em></p>
+                    <p>Achieved a perfect score in the National Mathematics ExamArtwork received the opportunity to be
+                        exhibited at Kreasso 2015, Ranked in the top 10 during the 3rd year of junior high school.</p>
+                </section>
+                <div class="center">
+                    <div class="inner">
+                        <section>
+                            <h1>Experiences</h1>
+                            <p>2022-Present |<em>HIMATESDA| Staff PSDM</em></p>
+                            <p>2023| <em> Dekan Cup| Staff Merchandise</em></p>
+                            <p>2022| <em>AIESEC In UNS| Newee Probation</em></p>
+                            <p>As a logistics staff member responsible for direct interaction with delegates, Responsible for
+                                delegate registration and creating event broadcast,Participated as a talent during the AIESEC
+                                closing party.</p>
+                            <p>2022| <em>HIMAPSILI|Staff Pengembangan Organisasi</em></p>
+                            <p>Master of Ceremony for the event "Upgrading HIMAPSILI, Executed one of the programs by
+                                serving as the Master of Ceremony for "One Hour Closer with HIMAPSILI, Participated as a talent
+                                in the program for the department's anniversary, "Iling Tahun."</p>
+                        </section>
+                        <section>
+                            <h1>Skill</h1>
+                            <ul class="skill-set">
+                                <li>Word</li>
+                                <li>Excel</li>
+                                <li>Garage Band</li>
+                                <li>R language</li>
+                                <li>English</li>
+                                <li>Python</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Shiqa!</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
+}
+
+.about-section {
+    background: url("{{ url_for('static', filename='images/bgpic.jpg') }}") no-repeat left;
+    background-size: 55%;
+    background-color: #fdfdfd;
+    padding: 100px 0;
+}
+
+
+.inner-container{
+    width: 55%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.profile-picture {
+            width: 200px; 
+            height: 200px; 
+            background: url("{{ url_for('static', filename='images/mi.jpg') }}") no-repeat left;
+            background-size: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+.inner-container h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900; 
+}
+
+.text{
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="about-section">
+        <div class="inner-container">
+            <div class="profile-picture"></div>
+            <h1>More About Shiqa</h1>
+            <p class="text">
+                Recognized by the name Shiqa, she goes by the full name Rashiqa Dewi Nariswari. Born in Jakarta, 22 December 2003. Identified as an INFJ based on the MBTI, she enjoys playing the guitar and singing, as well as having an interest in thriller/mystery crime content.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

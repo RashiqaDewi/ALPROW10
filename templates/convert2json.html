@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV to JSON Converter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: linear-gradient(to right, #BFB29E, #ba603fae);
+            color: rgb(13, 6, 6);
+        }
+
+        #container {
+            border: 2px solid #fff;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+        }
+
+        #output {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: rgb(8, 3, 3);
+        }
+
+        label, input, button {
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #1DB954;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #25A35A;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSV to JSON Converter</h1>
+
+    <div id="container">
+        <label for="file">Upload CSV File:</label>
+        <input type="file" id="file" accept=".csv" required>
+        <button onclick="convertCSVtoJSON()">Convert to JSON</button>
+
+        <button onclick="downloadJSON()">Download JSON</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        var jsonData = null;
+
+        function convertCSVtoJSON() {
+            var fileInput = document.getElementById('file');
+            var file = fileInput.files[0];
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var contents = e.target.result;
+                jsonData = convertCSV(contents);
+                displayJSON(jsonData);
+            };
+            reader.readAsText(file);
+        }
+
+        function convertCSV(csv) {
+            var lines = csv.split('\n');
+            var result = [];
+
+            var headers = lines[0].split(',');
+            for (var i = 1; i < lines.length; i++) {
+                var obj = {};
+                var currentline = lines[i].split(',');
+
+                for (var j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+
+                result.push(obj);
+            }
+
+            return result;
+        }
+
+        function displayJSON(json) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = JSON.stringify(json, null, 2);
+        }
+
+        function downloadJSON() {
+            if (jsonData === null) {
+                alert('No JSON data available');
+                return;
+            }
+
+            var jsonStr = JSON.stringify(jsonData, null, 2);
+            var blob = new Blob([jsonStr], { type: 'application/json' });
+
+            var url = URL.createObjectURL(blob);
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = 'converted.json';
+            link.click();
+        }
+    </script>
+</body>
+</html>

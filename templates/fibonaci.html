@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: linear-gradient(to right, #BFB29E, #ba603fae);
+            color: rgb(13, 6, 6);
+        }
+
+        #container {
+            border: 2px solid #fff;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+        }
+
+        #output {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: rgb(8, 3, 3);
+        }
+
+        label, input, button {
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #1DB954;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #25A35A;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+
+    <h1>Fibonacci Sequence Generator</h1>
+
+    <label for="length">Enter the length of the sequence:</label>
+    <input type="number" id="length" min="1" placeholder="Enter a number">
+    <button onclick="generateFibonacci()">Generate</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+    function generateFibonacci() {
+        var lengthInput = document.getElementById("length");
+        var outputDiv = document.getElementById("output");
+
+        var length = parseInt(lengthInput.value);
+
+        if (isNaN(length) || length <= 0) {
+            outputDiv.innerHTML = "Please enter a positive integer.";
+            return;
+        }
+
+        var sequence = [];
+        var a = 1, b = 1;
+
+        for (var i = 0; i < length; i++) {
+            sequence.push(a);
+            var temp = a;
+            a = b;
+            b = temp + b;
+        }
+
+        outputDiv.innerHTML = "Fibonacci Sequence: " + sequence.join(", ");
+    }
+</script>
+
+</body>
+</html>
